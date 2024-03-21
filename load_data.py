@@ -73,7 +73,23 @@ def create_schema():
         search_id	                      VARCHAR(60)
         )"""
     
-    conn.execute(query_create_schema)
-
-create_schema()
+    query_create_schema_head = """
+    CREATE TABLE student.fu_flight_project_head(
+        search_id	                      VARCHAR(60),
+        currency                          VARCHAR(10),
+        fx_rate                           FLOAT,
+        results                           INTEGER
+        )"""
     
+    conn.execute(query_create_schema)
+    conn.execute(query_create_schema_head)
+
+
+def write_server(data_frame, head):
+    conn = create_engine(endpoint)
+    code_data = data_frame.to_sql( 'fu_flight_project', schema = 'student', con=conn, if_exists='append', index=False )
+    code_head = data_frame_head.to_sql( 'fu_flight_project_head', schema = 'student', con=conn, if_exists='append', index=False )
+    return code
+    
+
+# create_schema()
