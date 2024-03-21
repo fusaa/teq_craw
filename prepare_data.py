@@ -70,7 +70,7 @@ def rename_columns(dataframe_flights):
 
     return dataframe_flights.rename(columns=columns_names)
 
-def rename_columns(dataframe_flights_head):
+def rename_columns_head(dataframe_flights_head):
     columns_names = {
         'id'                           : 'id',
         'currency'                     : 'currency',
@@ -89,3 +89,4 @@ def remove_data_column(dataframe_pre):
 
 def do_json_dump_columns(dataframe_flights):
     dataframe_flights['route'] = dataframe_flights['route'].apply(json.dumps)
+    return dataframe_flights
