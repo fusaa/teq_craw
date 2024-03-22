@@ -4,7 +4,7 @@ from load_data import *
 
 def main(dest):
     # get_data
-    call_result = search_flight('LON', dest, '22/03/2024', '30/03/2024', 4 , 6, 'GBP')
+    call_result = search_flight('LON', dest, '22/03/2024', '25/04/2024', 4 , 9, 'GBP')
 
     # prepare_data
     data_head = flatten_data(call_result)
@@ -20,10 +20,11 @@ def main(dest):
     # load_data
     print(write_server(data, data_head))
 
-destinations = ['AMS','CDG','FRA','MAD','BCN','FCO','MUC','LIS','DUB']
+destinations = ['AMS','CDG','FRA','MAD','BCN','FCO','MUC','LIS','DUB']  # testing w/ more destinations
+#  FRA issues,  table columns width
 
 if __name__ == "__main__":
     for dest in destinations:
-        print('Doing' + dest)
+        print('Doing ' + dest)
         main(dest)
 

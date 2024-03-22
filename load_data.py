@@ -11,7 +11,6 @@ endpoint = f'postgresql://{user}:{pwd}@{host}:{port}/{database}'
 def create_schema():
     conn = create_engine(endpoint)
 
-
     query_create_schema = """
     CREATE TABLE student.fu_flight_project(
 
@@ -84,6 +83,7 @@ def create_schema():
     
     conn.execute(query_create_schema)
     conn.execute(query_create_schema_head)
+    return None
 
 
 def write_server(data_frame, data_frame_head):
@@ -92,5 +92,14 @@ def write_server(data_frame, data_frame_head):
     code_head = data_frame_head.to_sql( 'fu_flight_project_head', schema = 'student', con=conn, if_exists='append', index=False )
     return code_data, code_head
     
+def alter_table_bug_fix():
+    conn = create_engine(endpoint)
+    query = """
+    ALTER TABLE student.fu_flight_project ALTER COLUMN id TYPE TEXT
+    """
+    ret = conn.execute(query)
+    return ret
+
 
 # create_schema()
+# alter_table_bug_fix()
