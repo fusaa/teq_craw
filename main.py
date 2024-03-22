@@ -2,9 +2,9 @@ from get_data import *
 from prepare_data import *
 from load_data import *
 
-def main():
+def main(dest):
     # get_data
-    call_result = search_flight('LON', 'MAD', '22/03/2024', '30/03/2024', 4 , 6, 'GBP')
+    call_result = search_flight('LON', dest, '22/03/2024', '30/03/2024', 4 , 6, 'GBP')
 
     # prepare_data
     data_head = flatten_data(call_result)
@@ -20,6 +20,10 @@ def main():
     # load_data
     print(write_server(data, data_head))
 
+destinations = ['AMS','CDG','FRA','MAD','BCN','FCO','MUC','LIS','DUB']
+
 if __name__ == "__main__":
-    main()
+    for dest in destinations:
+        print('Doing' + dest)
+        main(dest)
 
