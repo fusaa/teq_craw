@@ -90,3 +90,48 @@ def remove_data_column(dataframe_pre):
 def do_json_dump_columns(dataframe_flights):
     dataframe_flights['route'] = dataframe_flights['route'].apply(json.dumps)
     return dataframe_flights
+
+def routes_dataframe(dataframe_flights):
+    mult = []
+    
+    for a in range(len(dataframe_flights)):
+        ret = flatten_data(json.loads(dataframe_flights.loc[a]['route']))
+        ret['search_id'] = dataframe_flights.loc[a]['search_id']
+        mult.append(ret)   
+    
+    over = pd.concat(mult, ignore_index= True)
+    return over
+
+def rename_routes_columns(dataframe):
+    col_names = {
+    'id'                     : 'id',
+    'combination_id'         : 'combination_id',
+    'flyFrom'                : 'fly_from',
+    'flyTo'                  : 'fly_to',
+    'cityFrom'               : 'city_from',
+    'cityCodeFrom'           : 'city_code_from',
+    'cityTo'                 : 'city_to',
+    'cityCodeTo'             : 'city_code_to',
+    'local_departure'        : 'local_departure',
+    'utc_departure'          : 'utc_departure',
+    'local_arrival'          : 'local_arrival',
+    'utc_arrival'            : 'utc_arrival',
+    'airline'                : 'airline',
+    'flight_no'              : 'flight_no',
+    'operating_carrier'      : 'operating_carrier',
+    'operating_flight_no'    : 'operating_flight_no',
+    'fare_basis'             : 'fare_basis',
+    'fare_category'          : 'fare_category',
+    'fare_classes'           : 'fare_classes',
+    'return'                 : 'return',
+    'bags_recheck_required'  : 'bags_recheck_required',
+    'vi_connection'          : 'vi_connection',
+    'guarantee'              : 'guarantee',
+    'equipment'              : 'equipment',
+    'vehicle_type'           : 'vehicle_type',
+    'search_id'              : 'search_id'
+         
+        }
+    
+    return dataframe.rename(columns = col_names)
+

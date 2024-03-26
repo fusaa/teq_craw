@@ -21,8 +21,13 @@ def main(dest):
     data_head = rename_columns_head(data_head)
     data_head = remove_data_column(data_head)
 
+    routes = routes_dataframe(data)
+    routes = rename_routes_columns(routes)
+    
     # load_data
-    print(write_server(data, data_head))
+    print(f'da-dh: {write_server(data, data_head)}')
+    print(f'r: {write_server_routes(routes)}')
+
 
 destinations = ['AMS','CDG','FRA','MAD','BCN','FCO','MUC','LIS','DUB']  # destinations
 

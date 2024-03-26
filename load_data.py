@@ -86,6 +86,44 @@ def create_schema():
     return None
 
 
+def create_schema_routes():
+    conn = create_engine(endpoint)
+    
+    query_create_schema_routes = """
+    CREATE TABLE student.fu_flight_project_routes(
+    id                       TEXT,
+    combination_id           TEXT,
+    fly_from                 VARCHAR(10),
+    fly_to                   VARCHAR(10),
+    city_from                 VARCHAR(90),
+    city_code_from             VARCHAR(10),
+    city_to                  VARCHAR(90),
+    city_code_to            VARCHAR(10),
+    local_departure          TIMESTAMP,
+    utc_departure            TIMESTAMP,
+    local_arrival            TIMESTAMP,
+    utc_arrival              TIMESTAMP,
+    airline                  TEXT,
+    flight_no                INTEGER,
+    operating_carrier        TEXT,
+    operating_flight_no      TEXT,
+    fare_basis               TEXT,
+    fare_category            TEXT,
+    fare_classes             TEXT,
+    return                   INTEGER,
+    bags_recheck_required    BOOLEAN,
+    vi_connection            BOOLEAN,
+    guarantee                BOOLEAN,
+    equipment                TEXT,
+    vehicle_type             TEXT,
+    search_id                VARCHAR(60)  
+    )
+    
+    """
+    
+    return conn.execute(query_create_schema_routes)
+
+
 def write_server(data_frame, data_frame_head):
     conn = create_engine(endpoint)
     code_data = data_frame.to_sql( 'fu_flight_project', schema = 'student', con=conn, if_exists='append', index=False )
@@ -100,6 +138,11 @@ def alter_table_bug_fix():
     ret = conn.execute(query)
     return ret
 
+def write_server_routes(data_frame):
+    conn = create_engine(endpoint)
+    code = data_frame.to_sql( 'fu_flight_project_routes', schema = 'student', con=conn, if_exists='append', index=False )
+    return code
 
 # create_schema()
 # alter_table_bug_fix()
+# create_schema_routes()
