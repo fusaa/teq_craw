@@ -5,6 +5,7 @@ import numpy as np
 import plotly.express as px
 import json
 from datetime import datetime, timedelta
+import os
 
 # parent dir import
 # import sys
@@ -21,6 +22,11 @@ tomorrow = tomorrow.strftime('%Y-%m-%d')
 st.set_page_config( layout='wide')
 
 chosen_dest = 'AMS'
+
+PAGILA_USER = st.secrets["PAGILA_USER"]
+PAGILA_PWD = st.secrets["PAGILA_PWD"]
+PAGILA_HOST = st.secrets["PAGILA_HOST"]
+
 
 def get_db_engine():
     endpoint = f'postgresql://{PAGILA_USER}:{PAGILA_PWD}@{PAGILA_HOST}:5432/pagila'
