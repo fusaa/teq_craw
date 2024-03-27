@@ -4,3 +4,4 @@ sqlalchemy
 numpy
 plotly
 datetime
+psycopg2
