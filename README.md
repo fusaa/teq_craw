@@ -4,7 +4,7 @@ This project automates the process of fetching, processing, and storing flight d
 
 # Structure
 
-Four components:
+Five major components:
 
 1. Data Collection (get_data.py): Includes functions to interact with the Tequila API, fetching flight information based on predefined criteria such as destination, date range, and currency.
 
@@ -12,7 +12,9 @@ Four components:
 
 3. Data Loading (load_data.py): Deals with the database aspect, creating schemas and tables in PostgreSQL, and loading the prepared data into the database. It also includes functions for modifying table structures to accommodate the processed data.
 
-4. Web Application (streamlit.py): Streamlit application that visualizes some of the data stored in the database. It allows users to select flight destinations and displays statistics related to flight prices and availability.
+4. Main (main.py): This script ties together the functionalities provided by the individual modules, integrating the end-to-end data flow.
+
+5. Web Application (streamlit.py): Streamlit application that visualizes some of the data stored in the database. It allows users to select flight destinations and displays statistics related to flight prices and availability.
 
 # Misc
 
