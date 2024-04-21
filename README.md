@@ -16,6 +16,29 @@ Five major components:
 
 5. Web Application (streamlit.py): Streamlit application that visualizes some of the data stored in the database. It allows users to select flight destinations and displays statistics related to flight prices and availability.
 
+
+## Docker Implementation
+
+This project now includes a Dockerfile so the application can run in a containerized environment. This addition simplifies the deployment process and ensures consistency across different operating systems.
+
+### Running with Docker
+
+To run this application using Docker:
+
+1. **Clone the repository**:  
+`git clone https://github.com/fusaa/teq_craw.git`
+
+2. **Adjust credentials**:  
+After cloning the repository, update the `keys.py` file with the necessary credentials. Refer to `keys_template.py` for the format.  
+3. **Build the Docker image**:  
+`docker build -t teqc .`  
+4. **Run the container**:  
+`docker run teqc`  
+5. **Scheduled Execution**:  
+You can set up a cron job or use an orchestration tool to schedule the container to run hourly. 
+
+
+
 # Misc
 
 Dependencies can be found in 'requirements.txt', and credentials can be set in the keys.py file. For guidance, check 'keys_template.py'.
