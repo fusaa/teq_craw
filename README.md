@@ -45,4 +45,5 @@ Dependencies can be found in 'requirements.txt', and credentials can be set in t
 
 This is an ETL solution, from collection to visualization. It's designed to be modular, allowing for easy expansion or modification to suit different requirements or integrate additional data sources.
 
+Streamlit application: https://teq-craw.streamlit.app/
 
