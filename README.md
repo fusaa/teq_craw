@@ -19,7 +19,7 @@ Five major components:
 
 ## Docker Implementation
 
-This project now includes a Dockerfile so the application can run in a containerized environment. This addition simplifies the deployment process and ensures consistency across different operating systems.
+I have included a Dockerfile so the application can run in a containerized environment.  
 
 ### Running with Docker
 
@@ -41,7 +41,7 @@ You can set up a cron job or use an orchestration tool to schedule the container
 
 # Misc
 
-Dependencies can be found in 'requirements.txt', and credentials can be set in the keys.py file. For guidance, check 'keys_template.py'.
+Dependencies are in requirements.txt, and credentials can be set in the keys.py file. For guidance, please check keys_template.py.
 
 This is an ETL solution, from collection to visualization. It's designed to be modular, allowing for easy expansion or modification to suit different requirements or integrate additional data sources.
 
