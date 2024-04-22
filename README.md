@@ -38,7 +38,6 @@ After cloning the repository, update the `keys.py` file with the necessary crede
 You can set up a cron job or use an orchestration tool to schedule the container to run hourly. 
 
 
-
 # Misc
 
 Dependencies are in requirements.txt, and credentials can be set in the keys.py file. For guidance, please check keys_template.py.
